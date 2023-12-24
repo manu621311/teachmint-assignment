@@ -28,7 +28,7 @@ class ExpenseSerialzer(serializers.Serializer):
     CHOICES = ["EQUAL", "EXACT", "PERCENT"]
     payer = serializers.CharField()
     name = serializers.CharField(required=False, allow_blank=True, max_length=20)
-    notes = serializers.CharField(required=False, allow_blank=True, max_length=50)
+    note = serializers.CharField(required=False, allow_blank=True, max_length=50)
     amount = serializers.DecimalField(max_digits=10, decimal_places=2, min_value=1)
     split = SplitSerializer(many=True, help_text="Users", required=True)    #Users involved in split
     acquaintance = AcquaintanceSerializer(      #If any user has friends accompanying him

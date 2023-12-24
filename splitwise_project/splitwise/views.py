@@ -37,7 +37,7 @@ class SplitWiseView(APIView):
             splitted_owed_sum = sum(float(user["amount"]) for user in split)
             if not amount == splitted_owed_sum:
                 return Response(
-                    {"errors": {"BadRequest": "Invalid amount entered"}},
+                    {"errors": {"BadRequest": "Invalid amount entered, maybe the entered splits donot correspond to the total"}},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             
@@ -55,7 +55,7 @@ class SplitWiseView(APIView):
             splitted_owed_sum = sum(float(user["percent"]) for user in split)
             if not (splitted_owed_sum == 100):
                 return Response(
-                    {"errors": {"BadRequest": "Invalid amount entered"}},
+                    {"errors": {"BadRequest": "Invalid percent entered, maybe the entered splits donot correspond to the total"}},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             multiplication_factor = amount / 100    #For calculating value through percent

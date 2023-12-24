@@ -30,8 +30,8 @@ class UsersView(APIView):
         '''
         serializer = UserSerializer(data=json.loads(request.body))
         if serializer.is_valid():
-            self.users_collection.insert_one(serializer.validated_data)
-            return Response(serializer.validated_data)
+            result = self.users_collection.insert_one(serializer.validated_data)
+            return Response({"userId":str(result.inserted_id)})
         return Response(
             {"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
         )
