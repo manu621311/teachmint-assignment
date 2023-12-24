@@ -1,13 +1,18 @@
-from django.db import models
+'''Models to be used in users app'''
 
-# Create your models here.
 class User:
-    def __init__(self, user_id, name, email, phone, balance):
+    '''
+    Model class for user(Response)
+    '''
+    def __init__(self, user_id, name, email, phone, net_balance, balances, simplified_balance, expenses):
         self.user_id = user_id
         self.name = name
         self.email = email
         self.phone = phone
-        self.balance = balance
+        self.net_balance = net_balance
+        self.balances = balances
+        self.expenses = expenses
+        self.simplified_balance = simplified_balance
 
     def to_dict(self):
         return {
@@ -15,5 +20,8 @@ class User:
             'name': self.name,
             'email': self.email,
             'phone': self.phone,
-            'balance':self.balance
+            'netBalance':self.net_balance,
+            'balances': self.balances,
+            'expenses': self.expenses,
+            'simplifiedBalance': self.simplified_balance
         }

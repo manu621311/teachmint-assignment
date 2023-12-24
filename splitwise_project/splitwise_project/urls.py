@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('splitwise.urls')),
-    path('', include('users.urls')),
+    path('', include('splitwise.urls')), #splitwise endpoints accessible at this url
+    path('', include('users.urls')), #users endpoints accessible at this url
 ]
