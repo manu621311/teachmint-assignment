@@ -30,7 +30,7 @@ Basic Flow of a API Request:
 
 Some Important Points and Conventions:
 1) Positive Balance means user will get money
-2) Positive Balance means user will give money
+2) Negative Balance means user will give money
 
 Ex. In the above diagram, an entry is there inside users collection. Its balances key states: user1 will get Rs.45 from current user. user 2 will give Rs.95 to cuurent user.
 
